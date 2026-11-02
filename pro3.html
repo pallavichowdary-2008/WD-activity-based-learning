@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Cafe</title>
+
+    <style>
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fffaf3;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #3b1f16;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 28px;
+    color: #ffcc80;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    color: #ffcc80;
+}
+
+/* Home Section */
+.home {
+    min-height: 450px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.home-content h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.home-content p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    background-color: #a84322;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #713019;
+}
+
+/* Common Heading */
+.heading {
+    text-align: center;
+    font-size: 32px;
+    color: #713019;
+    margin-bottom: 35px;
+}
+
+/* Menu Section */
+.menu {
+    padding: 60px 8%;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.menu-card {
+    background-color: white;
+    width: 280px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #ccc;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.menu-card h3 {
+    margin: 15px 0;
+}
+
+.menu-card p {
+    margin-bottom: 10px;
+}
+
+.menu-card h4 {
+    color: #a84322;
+}
+
+/* Chef Section */
+.chefs {
+    padding: 60px 8%;
+    background-color: #f5e6d3;
+}
+
+.chef-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.chef-card {
+    width: 260px;
+    text-align: center;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.chef-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.chef-card h3 {
+    margin: 12px;
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 60px 8%;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery-container img {
+    width: 300px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 60px 8%;
+    background-color: #f5e6d3;
+}
+
+.review-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    background-color: white;
+    padding: 25px;
+    width: 280px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.review-card h3 {
+    margin-top: 15px;
+    color: #a84322;
+}
+
+/* Reservation Section */
+.reservation {
+    padding: 60px 8%;
+}
+
+.reservation-form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reservation-form input,
+.reservation-form textarea {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.reservation-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Contact Information */
+.contact-info {
+    padding: 60px 8%;
+    background-color: #f5e6d3;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background-color: white;
+    padding: 25px;
+    width: 350px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.info-card p {
+    margin-top: 12px;
+}
+
+/* Footer */
+.footer {
+    background-color: #3b1f16;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar a {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    .home-content h2 {
+        font-size: 30px;
+    }
+
+    .menu-card,
+    .chef-card,
+    .info-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .gallery-container img {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+<!-- Header Section -->
+<header class="header">
+    <h1 class="logo">Delicious Cafe</h1>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#chefs">Chefs</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- Home Section -->
+<section class="home" id="home">
+    <div class="home-content">
+        <h2>Welcome to Delicious Cafe</h2>
+        <p>Enjoy Fresh Food and Delicious Taste</p>
+        <a href="#menu" class="btn">Explore Menu</a>
+    </div>
+</section>
+
+<!-- Menu Section -->
+<section class="menu" id="menu">
+    <h2 class="heading">Our Special Menu</h2>
+
+    <div class="menu-container">
+
+        <div class="menu-card">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Pizza">
+            <h3>Cheese Pizza</h3>
+            <p>Fresh and tasty cheese pizza.</p>
+            <h4>₹250</h4>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Burger">
+            <h3>Veg Burger</h3>
+            <p>Delicious burger with fresh vegetables.</p>
+            <h4>₹150</h4>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500" alt="Pasta">
+            <h3>White Sauce Pasta</h3>
+            <p>Creamy pasta with special sauce.</p>
+            <h4>₹200</h4>
+        </div>
+
+    </div>
+</section>
+
+<!-- Chef Section -->
+<section class="chefs" id="chefs">
+    <h2 class="heading">Our Expert Chefs</h2>
+
+    <div class="chef-container">
+
+        <div class="chef-card">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=500" alt="Chef Rahul">
+            <h3>Chef Rahul</h3>
+            <p>Head Chef</p>
+        </div>
+
+        <div class="chef-card">
+            <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=500" alt="Chef Priya">
+            <h3>Chef Priya</h3>
+            <p>Special Food Expert</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery" id="gallery">
+    <h2 class="heading">Restaurant Ambience</h2>
+
+    <div class="gallery-container">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" alt="Restaurant">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500" alt="Dining Area">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500" alt="Cafe">
+    </div>
+</section>
+
+<!-- Customer Reviews -->
+<section class="reviews">
+    <h2 class="heading">Customer Reviews</h2>
+
+    <div class="review-container">
+
+        <div class="review-card">
+            <p>"Amazing food and excellent service!"</p>
+            <h3>- Anjali</h3>
+        </div>
+
+        <div class="review-card">
+            <p>"Beautiful atmosphere and tasty food."</p>
+            <h3>- Ravi</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- Reservation Section -->
+<section class="reservation" id="contact">
+    <h2 class="heading">Book Your Table</h2>
+
+    <form class="reservation-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="date" required>
+        <input type="time" required>
+        <input type="number" placeholder="Number of Guests" min="1" required>
+        <textarea placeholder="Special Requests"></textarea>
+
+        <button type="submit" class="btn">Reserve Now</button>
+    </form>
+</section>
+
+<!-- Opening Hours and Location -->
+<section class="contact-info">
+    <h2 class="heading">Visit Our Cafe</h2>
+
+    <div class="info-container">
+
+        <div class="info-card">
+            <h3>Opening Hours</h3>
+            <p>Monday - Friday: 9 AM - 10 PM</p>
+            <p>Saturday - Sunday: 10 AM - 11 PM</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Our Location</h3>
+            <p>Vijayawada, Andhra Pradesh, India</p>
+            <p>Phone: 9876543210</p>
+            <p>Email: deliciouscafe@gmail.com</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>© 2026 Delicious Cafe. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
